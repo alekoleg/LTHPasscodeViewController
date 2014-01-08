@@ -22,7 +22,7 @@ static CGFloat const kLockAnimationDuration = 0.15f;
 static CGFloat const kSlideAnimationDuration = 0.15f;
 // Set to 0 if you want to skip the check. If you don't, nothing happens,
 // just maxNumberOfAllowedFailedAttempts protocol method is checked for and called.
-static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
+static NSInteger const kMaxNumberOfAllowedFailedAttempts = 0;
 
 #define DegreesToRadians(x) ((x) * M_PI / 180.0)
 // Gaps
@@ -351,6 +351,9 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
 	
 	if ([self.delegate respondsToSelector: @selector(passcodeViewControllerWasDismissed)])
 		[self.delegate performSelector: @selector(passcodeViewControllerWasDismissed)];
+    if (self.afterDismissed) {
+        self.afterDismissed(self);
+    }
 	// Or, if you prefer by notifications:
 //	[[NSNotificationCenter defaultCenter] postNotificationName: @"dismissPasscodeViewController"
 //														object: self
@@ -395,6 +398,9 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
 	} completion: ^(BOOL finished) {
 		if ([self.delegate respondsToSelector: @selector(passcodeViewControllerWasDismissed)])
 			[self.delegate performSelector: @selector(passcodeViewControllerWasDismissed)];
+        if (self.afterDismissed) {
+            self.afterDismissed(self);
+        }
 		// Or, if you prefer by notifications:
 //		[[NSNotificationCenter defaultCenter] postNotificationName: @"dismissPasscodeViewController"
 //															object: self
@@ -621,6 +627,9 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
 			if ([typedString isEqualToString: savedPasscode]) {
                 if ([self.delegate respondsToSelector: @selector(passcodeWasEnteredSuccessfully)])
                     [self.delegate performSelector: @selector(passcodeWasEnteredSuccessfully)];
+                if (self.afterPasscodeEnteredSuccessuly) {
+                    self.afterPasscodeEnteredSuccessuly(self);
+                }
                 // Or, if you prefer by notifications:
 //                	[[NSNotificationCenter defaultCenter] postNotificationName: @"passcodeWasEnteredSuccessfully"
 //                														object: self

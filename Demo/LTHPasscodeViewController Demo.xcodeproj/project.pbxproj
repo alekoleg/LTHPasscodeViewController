@@ -46,6 +46,7 @@
 		2AF19591182C09D5005CE38A /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
 		2AF19592182C09D5005CE38A /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
 		2AF4E8391848F9FE00AB18EE /* LTHPasscodeViewController Demo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "LTHPasscodeViewController Demo-Info.plist"; sourceTree = "<group>"; };
+		B3E1691E187DAC940037F5CA /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "ru-RU.lproj/Localizable.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +170,7 @@
 				de,
 				es,
 				ro,
+				"ru-RU",
 			);
 			mainGroup = 2AE8FFFD17D9503000DBDE63;
 			productRefGroup = 2AE8000717D9503000DBDE63 /* Products */;
@@ -225,6 +227,7 @@
 				2AF1958A182C09D5005CE38A /* en */,
 				2AF1958B182C09D5005CE38A /* es */,
 				2AF19590182C09D5005CE38A /* ro */,
+				B3E1691E187DAC940037F5CA /* ru-RU */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

@@ -36,6 +36,8 @@
 + (CGFloat)timerStartTime;
 + (LTHPasscodeViewController *)sharedUser;
 
+@property (nonatomic, copy) void (^afterDismissed) (LTHPasscodeViewController *vc);
+@property (nonatomic, copy) void (^afterPasscodeEnteredSuccessuly) (LTHPasscodeViewController *vc);
 
 @end
 
