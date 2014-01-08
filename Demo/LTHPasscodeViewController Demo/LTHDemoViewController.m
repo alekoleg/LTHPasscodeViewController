@@ -116,7 +116,7 @@
 
 
 - (void)showLockViewForTestingPasscode {
-	[[LTHPasscodeViewController sharedUser] showLockScreenWithAnimation: YES];
+	[[LTHPasscodeViewController sharedUser] showLockScreenInViewController:self];
 }
 
 

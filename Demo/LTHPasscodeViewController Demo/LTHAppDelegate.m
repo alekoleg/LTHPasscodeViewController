@@ -26,12 +26,12 @@
 	self.window.rootViewController = navController;
 	[self.window makeKeyAndVisible];
 	
-	if ([LTHPasscodeViewController passcodeExistsInKeychain]) {
-		// Init the singleton
-		[LTHPasscodeViewController sharedUser];
-		if ([LTHPasscodeViewController didPasscodeTimerEnd])
-			[[LTHPasscodeViewController sharedUser] showLockScreenWithAnimation: YES];
-	}
+//	if ([LTHPasscodeViewController passcodeExistsInKeychain]) {
+//		// Init the singleton
+//		[LTHPasscodeViewController sharedUser];
+//		if ([LTHPasscodeViewController didPasscodeTimerEnd])
+//			[[LTHPasscodeViewController sharedUser] showLockScreenWithAnimation: YES];
+//	}
 	
     return YES;
 }

@@ -18,6 +18,7 @@
 @property (assign) BOOL isCurrentlyOnScreen;
 
 - (void)showLockScreenWithAnimation:(BOOL)animated;
+- (void)showLockScreenInViewController:(UIViewController *)viewController;
 - (void)showForEnablingPasscodeInViewController:(UIViewController *)viewController;
 - (void)showForChangingPasscodeInViewController:(UIViewController *)viewController;
 - (void)showForTurningOffPasscodeInViewController:(UIViewController *)viewController;

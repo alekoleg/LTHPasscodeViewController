@@ -368,18 +368,19 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 0;
 	[_passcodeTextField resignFirstResponder];
 	[UIView animateWithDuration: kLockAnimationDuration animations: ^{
 		if (_beingDisplayedAsLockScreen) {
-			if ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeLeft) {
-				self.view.center = CGPointMake(self.view.center.x * -1.f, self.view.center.y);
-			}
-			else if ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeRight) {
-				self.view.center = CGPointMake(self.view.center.x * 2.f, self.view.center.y);
-			}
-			else if ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait) {
-				self.view.center = CGPointMake(self.view.center.x, self.view.center.y * -1.f);
-			}
-			else {
-				self.view.center = CGPointMake(self.view.center.x, self.view.center.y * 2.f);
-			}
+//			if ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeLeft) {
+//				self.view.center = CGPointMake(self.view.center.x * -1.f, self.view.center.y);
+//			}
+//			else if ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeRight) {
+//				self.view.center = CGPointMake(self.view.center.x * 2.f, self.view.center.y);
+//			}
+//			else if ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait) {
+//				self.view.center = CGPointMake(self.view.center.x, self.view.center.y * -1.f);
+//			}
+//			else {
+//				self.view.center = CGPointMake(self.view.center.x, self.view.center.y * 2.f);
+//			}
+//            [self dismissViewControllerAnimated:YES completion:nil];
 		}
 		else {
 			// Delete from Keychain
@@ -405,13 +406,13 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 0;
 //		[[NSNotificationCenter defaultCenter] postNotificationName: @"dismissPasscodeViewController"
 //															object: self
 //														  userInfo: nil];
-		if (_beingDisplayedAsLockScreen) {
-			[self.view removeFromSuperview];
-			[self removeFromParentViewController];
-		}
-		else {
+//		if (_beingDisplayedAsLockScreen) {
+//			[self.view removeFromSuperview];
+//			[self removeFromParentViewController];
+//		}
+//		else {
 			[self dismissViewControllerAnimated: YES completion: nil];
-		}
+//		}
 	}];
 	[[NSNotificationCenter defaultCenter] removeObserver: self
 													name: UIApplicationDidChangeStatusBarOrientationNotification
@@ -494,6 +495,11 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 0;
 																						   action: @selector(cancelAndDismissMe)];
 }
 
+- (void)showLockScreenInViewController:(UIViewController *)viewController {
+    [self prepareAsLockScreen];
+    [self prepareNavigationControllerWithController:viewController];
+    self.title = NSLocalizedString(@"Enter Passcode", nil);
+}
 
 - (void)showForEnablingPasscodeInViewController:(UIViewController *)viewController {
 	[self prepareForEnablingPasscode];
@@ -825,22 +831,22 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 0;
 - (id)init {
 	self = [super init];
 	if (self) {
-		[[NSNotificationCenter defaultCenter] addObserver: self
-												 selector: @selector(applicationDidEnterBackground)
-													 name: UIApplicationDidEnterBackgroundNotification
-												   object: nil];
-		[[NSNotificationCenter defaultCenter] addObserver: self
-												 selector: @selector(applicationWillResignActive)
-													 name: UIApplicationWillResignActiveNotification
-												   object: nil];
-		[[NSNotificationCenter defaultCenter] addObserver: self
-												 selector: @selector(applicationDidBecomeActive)
-													 name: UIApplicationDidBecomeActiveNotification
-												   object: nil];
-		[[NSNotificationCenter defaultCenter] addObserver: self
-												 selector: @selector(applicationWillEnterForeground)
-													 name: UIApplicationWillEnterForegroundNotification
-												   object: nil];
+//		[[NSNotificationCenter defaultCenter] addObserver: self
+//												 selector: @selector(applicationDidEnterBackground)
+//													 name: UIApplicationDidEnterBackgroundNotification
+//												   object: nil];
+//		[[NSNotificationCenter defaultCenter] addObserver: self
+//												 selector: @selector(applicationWillResignActive)
+//													 name: UIApplicationWillResignActiveNotification
+//												   object: nil];
+//		[[NSNotificationCenter defaultCenter] addObserver: self
+//												 selector: @selector(applicationDidBecomeActive)
+//													 name: UIApplicationDidBecomeActiveNotification
+//												   object: nil];
+//		[[NSNotificationCenter defaultCenter] addObserver: self
+//												 selector: @selector(applicationWillEnterForeground)
+//													 name: UIApplicationWillEnterForegroundNotification
+//												   object: nil];
 		
 		_coverView = [[UIView alloc] initWithFrame: CGRectZero];
 		_coverView.backgroundColor = kCoverViewBackgroundColor;
